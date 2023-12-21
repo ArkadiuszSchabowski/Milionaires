@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Czy zostaniesz milionerem?</title>
+    <link rel="stylesheet" href="~/css/globalSite.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/leftContainer.css" />
+    <link rel="stylesheet" href="~/css/rightContainer.css" />
+</head>
+<body>
+    <header></header>
+    <main role="main">
+        @RenderBody()
+    </main>
+    <footer></footer>
+    <script src="~/js/balance.js"></script>
+    <script src="~/js/buttons.js"></script>
+    <script src="~/js/randomNumberGenerator.js"></script>
+    <script src="~/js/prizeTable.js"></script>
+    <script src="~/js/lifelines.js"></script>
+    <script src="~/js/game.js"></script>
+    <script src="~/js/listener.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
