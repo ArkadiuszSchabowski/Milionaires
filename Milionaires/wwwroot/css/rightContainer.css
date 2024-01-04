@@ -19,6 +19,9 @@
     justify-content: center;
     align-items: center;
 }
+#phone, #audience {
+    margin-right: 1%;
+}
 
 .buttonLifeline {
     width: 100%;
@@ -26,9 +29,19 @@
     justify-content: center;
     align-items: center;
     margin-top: 5%;
-    font-size: 0.8rem;
-    color: white;
-    background-color: rgb(11, 221, 11);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(48,63,159);
+}
+#btnPhone {
+    background-image: url(../images/phone.webp);
+}
+#btnAudience {
+    background-image: url(../images/audience.gif);
+}
+#btnFiftyFifty {
+    background-image: url(../images/50.webp);
 }
 
 #prizeTable {

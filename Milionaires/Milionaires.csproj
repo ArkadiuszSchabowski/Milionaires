@@ -21,4 +21,8 @@
     <None Include="wwwroot\js\prizeTable.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
