@@ -29,10 +29,10 @@ class Lifelines {
                     this.result = randomNumberGenerator.MessageWhenDontHaveFiftyFifty();
                 }
                 let newDiv = document.createElement("div");
-                newDiv.classList.add("questionNewWindow");
-                newDiv.innerHTML = `${this.result}`;
-                buttons.btnPhone.classList.add("redColor");
                 this.questionWindow.appendChild(newDiv);
+                newDiv.id = "questionNewWindow";
+                buttons.btnPhone.classList.add("redColor");
+                newDiv.innerHTML = `${this.result}`;
                 this.phone = false;
             }
         })

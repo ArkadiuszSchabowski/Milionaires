@@ -34,6 +34,7 @@ class Game {
             this.btnD = document.querySelector("#btnD");
             this.btnResign = document.querySelector("#btnResign");
             this.questionWindow = document.querySelector("#questionWindow");
+            this.questionText = document.querySelector("#questionText");
             this.prizeTable = document.querySelector("#prizeTable");
 
             this.data = await response.json();
@@ -41,7 +42,7 @@ class Game {
             this.SetQuestionOnArrays(this.data);
 
         } catch (error) {
-            this.questionWindow.innerHTML = "Wystąpił błąd podczas pobierania danych.";
+            this.questionText.innerHTML = "Wystąpił błąd podczas pobierania danych.";
         }
     }
     SetQuestionOnArrays = (data) => {
@@ -194,7 +195,7 @@ class Game {
 
         this.randomNumber = randomNumberGenerator.SetRandomNumberForQuestion();
 
-        this.questionWindow.innerHTML = questionData[this.randomNumber].question;
+        this.questionText.innerHTML = questionData[this.randomNumber].question;
         this.btnA.innerHTML = questionData[this.randomNumber].answers[0];
         this.btnB.innerHTML = questionData[this.randomNumber].answers[1];
         this.btnC.innerHTML = questionData[this.randomNumber].answers[2];
@@ -210,13 +211,13 @@ class Game {
     SetButtonResign() {
         this.btnResign.addEventListener("click", () => {
             if (this.balance === 0) {
-                this.questionWindow.innerHTML = `Jeszcze nie zaczeliśmy gry, a juz sie wycofałes? Mimo wszystko dziekuję za udział w grze !`;
+                this.questionText.innerHTML = `Jeszcze nie zaczeliśmy gry, a juz sie wycofałes? Mimo wszystko dziekuję za udział w grze !`;
             }
             else if ((this.balance !== 0) && (this.balance !== 2000) && (this.balance !== 40000)) {
-                this.questionWindow.innerHTML = `To dobra decyzja, żeby sie wycofać. Gratulacje wygrywasz ${this.balance} zł !!!`;
+                this.questionText.innerHTML = `To dobra decyzja, żeby sie wycofać. Gratulacje wygrywasz ${this.balance} zł !!!`;
             }
             else if ((this.balance === 2000) || (this.balance === 40000)) {
-                this.questionWindow.innerHTML = `Zrezygnowałeś na progu gwarantowanym. Wygrywasz ${this.balance} zł !`;
+                this.questionText.innerHTML = `Zrezygnowałeś na progu gwarantowanym. Wygrywasz ${this.balance} zł !`;
             }
             buttons.SetDefaultTextForButtons();
             buttons.LockButtons();
@@ -230,7 +231,7 @@ class Game {
 
         this.balance = balance.SetCurrentBalance(1000000);
 
-        this.questionWindow.innerHTML = `Odpowiedziałeś poprawnie na wszystkie pytania! Wygrywasz ${this.balance} zł !!!`;
+        this.questionText.innerHTML = `Odpowiedziałeś poprawnie na wszystkie pytania! Wygrywasz ${this.balance} zł !!!`;
 
     }
     EndGameWhenAnswerIsIncorrect = () => {
@@ -266,7 +267,7 @@ class Game {
                 break;
         }
 
-        this.questionWindow.innerHTML = `Dziękujemy za grę! Twój wynik to ${this.balance} zł !`;
+        this.questionText.innerHTML = `Dziękujemy za grę! Twój wynik to ${this.balance} zł !`;
     }
 }
 
