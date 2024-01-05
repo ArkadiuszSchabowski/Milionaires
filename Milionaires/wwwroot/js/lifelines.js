@@ -4,6 +4,7 @@ class Lifelines {
     constructor() {
 
         this.result;
+        this.questionText = document.querySelector("#questionText");
         this.questionWindow = document.querySelector("#questionWindow");
 
         this.audience = true;
@@ -27,8 +28,11 @@ class Lifelines {
                 if (!this.fiftyFifty) {
                     this.result = randomNumberGenerator.MessageWhenDontHaveFiftyFifty();
                 }
-                this.questionWindow.innerHTML = `${this.questionWindow.innerHTML}${this.result}`;
+                let newDiv = document.createElement("div");
+                newDiv.classList.add("questionNewWindow");
+                newDiv.innerHTML = `${this.result}`;
                 buttons.btnPhone.classList.add("redColor");
+                this.questionWindow.appendChild(newDiv);
                 this.phone = false;
             }
         })
@@ -67,7 +71,7 @@ class Lifelines {
                 else {
                     this.result = randomNumberGenerator.AudienceWhenDontHaveFiftyFifty();
                 }
-                this.questionWindow.innerHTML = `${this.questionWindow.innerHTML}${this.result}`;
+                this.questionText.innerHTML = `${this.questionText.innerHTML}${this.result}`;
                 buttons.btnAudience.classList.add("redColor");
                 this.audience = false;
             }
