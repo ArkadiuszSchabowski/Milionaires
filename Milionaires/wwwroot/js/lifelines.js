@@ -29,7 +29,7 @@ class Lifelines {
                     this.result = randomNumberGenerator.MessageWhenDontHaveFiftyFifty();
                 }
                 let newDiv = document.createElement("div");
-                this.questionWindow.appendChild(newDiv);
+                this.questionText.appendChild(newDiv);
                 newDiv.id = "questionNewWindow";
                 buttons.btnPhone.classList.add("redColor");
                 newDiv.innerHTML = `${this.result}`;
@@ -71,7 +71,11 @@ class Lifelines {
                 else {
                     this.result = randomNumberGenerator.AudienceWhenDontHaveFiftyFifty();
                 }
-                this.questionText.innerHTML = `${this.questionText.innerHTML}${this.result}`;
+
+                let newDiv = document.createElement("div");
+                this.questionText.appendChild(newDiv);
+                newDiv.id = "questionNewWindow";
+                newDiv.innerHTML = `${this.result}`;
                 buttons.btnAudience.classList.add("redColor");
                 this.audience = false;
             }
