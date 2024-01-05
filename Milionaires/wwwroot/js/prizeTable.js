@@ -33,6 +33,7 @@
                 case 5:
                     table.innerText = "40000 zł";
                     table.id = "RowQuestion5";
+                    table.classList.add("checkpoint");
                     break;
                 case 4:
                     table.innerText = "10000 zł";
@@ -45,6 +46,7 @@
                 case 2:
                     table.innerText = "2000 zł";
                     table.id = "RowQuestion2";
+                    table.classList.add("checkpoint");
                     break;
                 case 1:
                     table.innerText = "500 zł";
