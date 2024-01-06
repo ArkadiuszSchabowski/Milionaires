@@ -10,6 +10,17 @@ class Game {
         this.data;
         this.randomNumber;
 
+        this.point1 = document.getElementById("point1");
+        this.point2 = document.getElementById("point2");
+        this.point3 = document.getElementById("point3");
+        this.point4 = document.getElementById("point4");
+        this.point5 = document.getElementById("point5");
+        this.point6 = document.getElementById("point6");
+        this.point7 = document.getElementById("point7");
+        this.point8 = document.getElementById("point8");
+        this.point9 = document.getElementById("point9");
+        this.point10 = document.getElementById("point10");
+
         this.lifelines = new Lifelines(this);
 
         lifelines.AddLifelines();
@@ -97,10 +108,10 @@ class Game {
             case 10:
                 this.SetQuestion(this.questions10);
                 break;
-
             case 11:
                 this.prizeTable.children[1].classList.remove("currentAnswer");
                 this.prizeTable.children[0].classList.add("currentAnswer");
+                this.point10.innerHTML = "*";
                 this.AllCorrectAnswers();
                 break;
         }
@@ -136,6 +147,7 @@ class Game {
                 break;
 
             case 2:
+                this.point1.innerHTML = "*";
                 this.prizeTable.children[9].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasB();
                 this.balance = balance.SetCurrentBalance(500);
@@ -143,6 +155,7 @@ class Game {
                 break;
 
             case 3:
+                this.point2.innerHTML = "*";
                 this.prizeTable.children[9].classList.remove("currentAnswer");
                 this.prizeTable.children[8].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasC();
@@ -150,6 +163,7 @@ class Game {
                 this.SetQuestionContent(questionData);
                 break;
             case 4:
+                this.point3.innerHTML = "*";
                 this.prizeTable.children[8].classList.remove("currentAnswer");
                 this.prizeTable.children[7].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasA();
@@ -157,6 +171,7 @@ class Game {
                 this.SetQuestionContent(questionData);
                 break;
             case 5:
+                this.point4.innerHTML = "*";
                 this.prizeTable.children[7].classList.remove("currentAnswer");
                 this.prizeTable.children[6].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasD();
@@ -164,12 +179,14 @@ class Game {
                 this.SetQuestionContent(questionData);
                 break;
             case 6:
+                this.point5.innerHTML = "*";
                 this.prizeTable.children[6].classList.remove("currentAnswer");
                 this.prizeTable.children[5].classList.add("currentAnswer");
                 this.balance = balance.SetCurrentBalance(40000);
                 this.SetQuestionContent(questionData);
                 break;
             case 7:
+                this.point6.innerHTML = "*";
                 this.prizeTable.children[5].classList.remove("currentAnswer");
                 this.prizeTable.children[4].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasA();
@@ -177,6 +194,7 @@ class Game {
                 this.SetQuestionContent(questionData);
                 break;
             case 8:
+                this.point7.innerHTML = "*";
                 this.prizeTable.children[4].classList.remove("currentAnswer");
                 this.prizeTable.children[3].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasC();
@@ -184,6 +202,7 @@ class Game {
                 this.SetQuestionContent(questionData);
                 break;
             case 9:
+                this.point8.innerHTML = "*";
                 this.prizeTable.children[3].classList.remove("currentAnswer");
                 this.prizeTable.children[2].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasB();
@@ -191,6 +210,7 @@ class Game {
                 this.SetQuestionContent(questionData);
                 break;
             case 10:
+                this.point9.innerHTML = "*";
                 this.prizeTable.children[2].classList.remove("currentAnswer");
                 this.prizeTable.children[1].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasD();
@@ -220,7 +240,7 @@ class Game {
     SetButtonResign() {
         this.btnResign.addEventListener("click", () => {
             if (this.balance === 0) {
-                this.questionText.innerHTML = `Jeszcze nie zaczeliśmy gry, a juz sie wycofałes? Mimo wszystko dziekuję za udział w grze!`;
+                this.questionText.innerHTML = `Jeszcze nie zaczeliśmy gry, a juz sie wycofałeś? Mimo wszystko dziekuję za udział w grze!`;
             }
             else if ((this.balance !== 0) && (this.balance !== 2000) && (this.balance !== 40000)) {
                 this.questionText.innerHTML = `To dobra decyzja, żeby sie wycofać. Gratulacje wygrywasz ${this.balance} zł!`;
@@ -252,9 +272,9 @@ class Game {
             case 3:
             case 4:
             case 5:
-            case 6:
                 this.balance = 2000;
                 break;
+            case 6:
             case 7:
             case 8:
             case 9:
@@ -264,7 +284,6 @@ class Game {
         }
         buttons.LockButtons();
         this.ShowCorrectAnswer();
-        this.SetColorRowsWhenAnswerIsIncorrect();
     }
     ShowCorrectAnswer() {
         switch (this.correctIndex) {
@@ -305,9 +324,6 @@ class Game {
                 this.btnD.style.backgroundColor = "green";
                 break;
         }
-    }
-    SetColorRowsWhenAnswerIsIncorrect() {
-
     }
 }
 const game = new Game();
