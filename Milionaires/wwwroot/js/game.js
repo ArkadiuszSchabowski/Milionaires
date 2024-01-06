@@ -25,7 +25,7 @@ class Game {
 
     GetContent = async () => {
         try {
-            const path = "/Question/GetQuestions"
+            const path = "/Question/GetQuestions";
             const response = await fetch(path);
 
             this.btnA = document.querySelector("#btnA");
@@ -64,51 +64,43 @@ class Game {
 
             case 2:
                 this.SetQuestion(this.questions2);
-                this.prizeTable.childNodes[9].classList.add("correctColor");
                 break;
 
             case 3:
                 this.SetQuestion(this.questions3);
-                this.prizeTable.childNodes[8].classList.add("guaranteedPrizeColor");
                 break;
 
             case 4:
                 this.SetQuestion(this.questions4);
-                this.prizeTable.childNodes[7].classList.add("correctColor");
                 break;
 
             case 5:
                 this.SetQuestion(this.questions5);
-                this.prizeTable.childNodes[6].classList.add("correctColor");
                 break;
 
             case 6:
                 this.SetQuestion(this.questions6);
-                this.prizeTable.childNodes[5].classList.add("guaranteedPrizeColor");
                 break;
 
             case 7:
                 this.SetQuestion(this.questions7);
-                this.prizeTable.childNodes[4].classList.add("correctColor");
                 break;
 
             case 8:
                 this.SetQuestion(this.questions8);
-                this.prizeTable.childNodes[3].classList.add("correctColor");
                 break;
 
             case 9:
                 this.SetQuestion(this.questions9);
-                this.prizeTable.childNodes[2].classList.add("correctColor");
                 break;
 
             case 10:
                 this.SetQuestion(this.questions10);
-                this.prizeTable.childNodes[1].classList.add("correctColor");
                 break;
 
             case 11:
-                this.prizeTable.childNodes[0].classList.add("correctColor");
+                this.prizeTable.children[1].classList.remove("currentAnswer");
+                this.prizeTable.children[0].classList.add("currentAnswer");
                 this.AllCorrectAnswers();
                 break;
         }
@@ -144,46 +136,63 @@ class Game {
                 break;
 
             case 2:
+                this.prizeTable.children[9].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasB();
                 this.balance = balance.SetCurrentBalance(500);
                 this.SetQuestionContent(questionData);
                 break;
 
             case 3:
+                this.prizeTable.children[9].classList.remove("currentAnswer");
+                this.prizeTable.children[8].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasC();
                 this.balance = balance.SetCurrentBalance(2000);
                 this.SetQuestionContent(questionData);
                 break;
             case 4:
+                this.prizeTable.children[8].classList.remove("currentAnswer");
+                this.prizeTable.children[7].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasA();
                 this.balance = balance.SetCurrentBalance(5000);
                 this.SetQuestionContent(questionData);
                 break;
             case 5:
+                this.prizeTable.children[7].classList.remove("currentAnswer");
+                this.prizeTable.children[6].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasD();
                 this.balance = balance.SetCurrentBalance(10000);
                 this.SetQuestionContent(questionData);
                 break;
             case 6:
+                this.prizeTable.children[6].classList.remove("currentAnswer");
+                this.prizeTable.children[5].classList.add("currentAnswer");
                 this.balance = balance.SetCurrentBalance(40000);
                 this.SetQuestionContent(questionData);
                 break;
             case 7:
+                this.prizeTable.children[5].classList.remove("currentAnswer");
+                this.prizeTable.children[4].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasA();
                 this.balance = balance.SetCurrentBalance(75000);
                 this.SetQuestionContent(questionData);
                 break;
             case 8:
+                this.prizeTable.children[4].classList.remove("currentAnswer");
+                this.prizeTable.children[3].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasC();
                 this.balance = balance.SetCurrentBalance(150000);
                 this.SetQuestionContent(questionData);
                 break;
             case 9:
+                this.prizeTable.children[3].classList.remove("currentAnswer");
+                this.prizeTable.children[2].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasB();
                 this.balance = balance.SetCurrentBalance(250000);
                 this.SetQuestionContent(questionData);
                 break;
             case 10:
+                this.prizeTable.children[2].classList.remove("currentAnswer");
+                this.prizeTable.children[1].classList.add("currentAnswer");
                 listener.RemoveListenersWhenTheCorrectAnswerWasD();
                 this.balance = balance.SetCurrentBalance(500000);
                 this.SetQuestionContent(questionData);
@@ -211,13 +220,13 @@ class Game {
     SetButtonResign() {
         this.btnResign.addEventListener("click", () => {
             if (this.balance === 0) {
-                this.questionText.innerHTML = `Jeszcze nie zaczeliśmy gry, a juz sie wycofałes? Mimo wszystko dziekuję za udział w grze !`;
+                this.questionText.innerHTML = `Jeszcze nie zaczeliśmy gry, a juz sie wycofałes? Mimo wszystko dziekuję za udział w grze!`;
             }
             else if ((this.balance !== 0) && (this.balance !== 2000) && (this.balance !== 40000)) {
-                this.questionText.innerHTML = `To dobra decyzja, żeby sie wycofać. Gratulacje wygrywasz ${this.balance} zł !!!`;
+                this.questionText.innerHTML = `To dobra decyzja, żeby sie wycofać. Gratulacje wygrywasz ${this.balance} zł!`;
             }
             else if ((this.balance === 2000) || (this.balance === 40000)) {
-                this.questionText.innerHTML = `Zrezygnowałeś na progu gwarantowanym. Wygrywasz ${this.balance} zł !`;
+                this.questionText.innerHTML = `Zrezygnowałeś na progu gwarantowanym. Wygrywasz ${this.balance} zł!`;
             }
             buttons.SetDefaultTextForButtons();
             buttons.LockButtons();
@@ -231,7 +240,7 @@ class Game {
 
         this.balance = balance.SetCurrentBalance(1000000);
 
-        this.questionText.innerHTML = `Odpowiedziałeś poprawnie na wszystkie pytania! Wygrywasz ${this.balance} zł !!!`;
+        this.questionText.innerHTML = `Odpowiedziałeś poprawnie na wszystkie pytania! Wygrywasz ${this.balance} zł!`;
 
     }
     EndGameWhenAnswerIsIncorrect = () => {
@@ -242,32 +251,7 @@ class Game {
         this.SetColorRowsWhenAnswerIsIncorrect();
     }
     SetColorRowsWhenAnswerIsIncorrect() {
-        switch (this.questionNumber) {
-            case 3:
-                this.balance = balance.SetStartBalance();
-                this.prizeTable.childNodes[9].classList.remove("correctColor");
-                break;
-            //case 4 - pierwszy prog gwarantowany
-            case 5:
-            case 6:
-                this.balance = balance.SetBalanceToFirstCheckpoint();
-                for (let i = 6; i < 8; i++) {
-                    this.prizeTable.childNodes[i].classList.remove("correctColor");
-                }
-                break;
-            //case 7 - drugi prog gwarantowany
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-                this.balance = balance.SetBalanceToSecondCheckpoint();
-                for (let i = 1; i < 5; i++) {
-                    this.prizeTable.childNodes[i].classList.remove("correctColor");
-                }
-                break;
-        }
-
-        this.questionText.innerHTML = `Dziękujemy za grę! Twój wynik to ${this.balance} zł !`;
+        this.questionText.innerHTML = `Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
     }
 }
 

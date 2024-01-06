@@ -8,17 +8,14 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\js\buttons.js" />
-    <Content Remove="wwwroot\js\prizeTable.js" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\js\buttons.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\prizeTable.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\buttons.js" />
-    <None Include="wwwroot\js\prizeTable.js" />
   </ItemGroup>
 
   <ItemGroup>

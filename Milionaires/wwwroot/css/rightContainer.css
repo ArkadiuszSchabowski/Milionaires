@@ -47,29 +47,33 @@
 #prizeTable {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 80%;
-    background-color: #303f9f;
+    background-color: transparent;
     padding-bottom: 5%;
+    background-color: rgb(48,63,159);
 }
-
-.rowDimensions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#prizeTable div{
+    display: grid;
+    grid-template-columns: 0.7fr 0.7fr 3fr;
     width: 50%;
-    height: 10%;
-    margin-left: 5%;
-    font-size: 1rem;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+.row {
+    display: flex;
+    flex-direction: row;
     color: white;
 }
+
 .normalColor {
     background-color: #303f9f;
+    width: 100%;
+    height: 100%;
 }
-.correctColor {
-    background-color: green;
+.currentAnswer {
+    background-color: orange;
 }
 .redColor{
     background-color: red;
