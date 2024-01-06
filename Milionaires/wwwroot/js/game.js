@@ -264,25 +264,44 @@ class Game {
         }
         buttons.LockButtons();
         this.ShowCorrectAnswer();
-
         this.SetColorRowsWhenAnswerIsIncorrect();
     }
     ShowCorrectAnswer() {
         switch (this.correctIndex) {
             case 0:
+                if (this.balance == 0) {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to A. Niestety tym razem nic nie wygrałeś :(`
+                }
+                else {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to A. Wygrywasz ${this.balance} zł!`;
+                }
                 this.btnA.style.backgroundColor = "green";
-                this.questionText.innerHTML = `Niestety poprawna odpowiedź to  A. Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
                 break;
             case 1:
-                this.questionText.innerHTML = `Niestety poprawna odpowiedź to B.Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+                if (this.balance == 0) {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to B. Niestety tym razem nic nie wygrałeś :(`
+                }
+                else {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to B. Wygrywasz ${this.balance} zł!`;
+                }
                 this.btnB.style.backgroundColor = "green";
                 break;
             case 2:
-                this.questionText.innerHTML = `Niestety poprawna odpowiedź to C. Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+                if (this.balance == 0) {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to C. Niestety tym razem nic nie wygrałeś :(`
+                }
+                else {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to C. Wygrywasz ${this.balance} zł!`;
+                }
                 this.btnC.style.backgroundColor = "green";
                 break;
-            case 3:
-                this.questionText.innerHTML = `Niestety poprawna odpowiedź to D. Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+            case 3: 
+                if (this.balance == 0) {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to D. Niestety tym razem nic nie wygrałeś :(`
+                }
+                else {
+                    this.questionText.innerHTML = `Niestety poprawna odpowiedź to D. Wygrywasz ${this.balance} zł!`;
+                }
                 this.btnD.style.backgroundColor = "green";
                 break;
         }
@@ -291,5 +310,4 @@ class Game {
 
     }
 }
-
 const game = new Game();

@@ -26,10 +26,10 @@ class Buttons {
         this.btnB.disabled = true;
         this.btnC.disabled = true;
         this.btnD.disabled = true;
-        this.btnAudience.disabled = true;
-        this.btnPhone.disabled = true;
-        this.btnFiftyFifty.disabled = true;
         this.btnResign.disabled = true;
+        this.btnAudience.style.pointerEvents = "none";
+        this.btnPhone.style.pointerEvents = "none";
+        this.btnFiftyFifty.style.pointerEvents = "none";
     }
 };
 let buttons = new Buttons();
