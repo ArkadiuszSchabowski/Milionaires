@@ -1,60 +1,7 @@
 ﻿class PrizeTable {
     constructor() {
         this.prizeTable = document.getElementById("prizeTable");
-        this.CreateTableInsidePrizeTable();
-    }
 
-    CreateTableInsidePrizeTable = () => {
-        for (let i = 10; i > 0; i--) {
-            let table = document.createElement("div");
-            table.classList.add("rowDimensions");
-            table.classList.add("normalColor");
-            switch (i) {
-                case 10:
-                    table.innerText = `1000000 zł`;
-                    table.id = "RowQuestion10";
-                    break;
-                case 9:
-                    table.innerText = "500000 zł";
-                    table.id = "RowQuestion9";
-                    break;
-                case 8:
-                    table.innerText = "250000 zł";
-                    table.id = "RowQuestion8";
-                    break;
-                case 7:
-                    table.innerText = "150000 zł";
-                    table.id = "RowQuestion7";
-                    break;
-                case 6:
-                    table.innerText = "75000 zł";
-                    table.id = "RowQuestion6";
-                    break;
-                case 5:
-                    table.innerText = "40000 zł";
-                    table.id = "RowQuestion5";
-                    table.classList.add("checkpoint");
-                    break;
-                case 4:
-                    table.innerText = "10000 zł";
-                    table.id = "RowQuestion4";
-                    break;
-                case 3:
-                    table.innerText = "5000 zł";
-                    table.id = "RowQuestion3";
-                    break;
-                case 2:
-                    table.innerText = "2000 zł";
-                    table.id = "RowQuestion2";
-                    table.classList.add("checkpoint");
-                    break;
-                case 1:
-                    table.innerText = "500 zł";
-                    table.id = "RowQuestion1";
-                    break;
-            }
-            this.prizeTable.appendChild(table);
-        }
     }
 }
 
