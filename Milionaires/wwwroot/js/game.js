@@ -244,14 +244,51 @@ class Game {
 
     }
     EndGameWhenAnswerIsIncorrect = () => {
-
+        switch (this.questionNumber -1) {
+            case 1:
+            case 2:
+                this.balance = 0;
+                break;
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                this.balance = 2000;
+                break;
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                this.balance = 40000;
+                break;
+        }
         buttons.LockButtons();
-        buttons.SetDefaultTextForButtons();
+        this.ShowCorrectAnswer();
 
         this.SetColorRowsWhenAnswerIsIncorrect();
     }
+    ShowCorrectAnswer() {
+        switch (this.correctIndex) {
+            case 0:
+                this.btnA.style.backgroundColor = "green";
+                this.questionText.innerHTML = `Niestety poprawna odpowiedź to  A. Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+                break;
+            case 1:
+                this.questionText.innerHTML = `Niestety poprawna odpowiedź to B.Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+                this.btnB.style.backgroundColor = "green";
+                break;
+            case 2:
+                this.questionText.innerHTML = `Niestety poprawna odpowiedź to C. Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+                this.btnC.style.backgroundColor = "green";
+                break;
+            case 3:
+                this.questionText.innerHTML = `Niestety poprawna odpowiedź to D. Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+                this.btnD.style.backgroundColor = "green";
+                break;
+        }
+    }
     SetColorRowsWhenAnswerIsIncorrect() {
-        this.questionText.innerHTML = `Dziękujemy za grę! Twój wynik to ${this.balance} zł!`;
+
     }
 }
 
