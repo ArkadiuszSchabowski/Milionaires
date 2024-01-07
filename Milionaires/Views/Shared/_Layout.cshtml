@@ -11,11 +11,16 @@
 </head>
 <body>
     <header>
-
+        <a asp-area="" asp-controller="Home" asp-action="Index">Nowa gra</a>
+        <a asp-area="" asp-controller="Home" asp-action="Scores">Wyniki</a>
+        <a asp-area="" asp-controller="Home" asp-action="Settings">Ustawienia</a>
+        <a asp-area="" asp-controller="Home" asp-action="Information">Informacje</a>
     </header>
+    <div id="globalContainer">
     <main role="main">
         @RenderBody()
     </main>
+    </div>
     <footer></footer>
     <script src="~/js/balance.js"></script>
     <script src="~/js/buttons.js"></script>

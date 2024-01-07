@@ -6,9 +6,28 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
     background-color: #d4d4d4;
+}
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    margin-top: 1%;
+    width: 100vw;
+    height: 5vh;
+    background-color: #303f9f;
+}
+    header a {
+        color: white;
+        text-decoration: none;
+    }
+#globalContainer{
+    width: 100vw;
+    height: 95vh;
 }
