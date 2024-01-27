@@ -195,8 +195,7 @@
             this.questionWindow.style.backgroundImage = "url('../images/highestPrice.gif')";
         }
         else {
-            this.questionWindow.style.backgroundImage = "none";
-            this.questionWindow.style.backgroundColor = "rebeccapurple";
+            this.questionWindow.style.backgroundImage = "url('../images/backgroundResult.jpeg')";
         }
     }
 
