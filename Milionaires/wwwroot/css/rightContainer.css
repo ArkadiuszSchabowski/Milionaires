@@ -1,0 +1,119 @@
+﻿#rightContainer {
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #d4d4d4;
+}
+
+#lifelines {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    background-color: rebeccapurple;
+    justify-content: center;
+    align-items: center;
+}
+
+.lifeline {
+    width: 33.3%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#phone, #audience {
+    margin-right: 1%;
+}
+
+.buttonLifeline {
+    width: 100%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rebeccapurple;
+}
+#btnPhone {
+    background-image: url(../images/phone.webp);
+}
+#btnAudience {
+    background-image: url(../images/audience.gif);
+}
+#btnFiftyFifty {
+    background-image: url(../images/50.webp);
+}
+
+#prizeTable {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+    padding-bottom: 5%;
+    background-color: rebeccapurple;
+}
+#prizeTable div{
+    display: grid;
+    grid-template-columns: 0.7fr 1.5fr 3fr;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.orangeFont {
+    color: rgb(255, 140, 0);
+}
+.whiteFont{
+    color: white;
+}
+
+.currentAnswer {
+    padding: 5px 0;
+    background-color: green;
+    color: black;
+    font-weight: bold;
+    border-radius: 50px;
+}
+.normalColor {
+    background-color: #303f9f;
+    width: 100%;
+    height: 100%;
+}
+.redColor{
+    background-color: red;
+}
+.checkpoint{
+    font-weight: 700;
+}
+.star{
+    background-image: url(../images/star.png);
+    width: 40%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .lifeline {
+        width: 30%;
+    }
+    #rightContainer {
+        border-left: 2px solid black;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .lifeline {
+        width: 30%;
+    }
+    #rightContainer {
+        border-left: 2px solid black;
+    }
+}

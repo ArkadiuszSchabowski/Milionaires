@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Czy zostaniesz milionerem?</title>
+    <link rel="stylesheet" href="~/css/globalSite.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+    <link rel="stylesheet" href="~/css/leftContainer.css" />
+    <link rel="stylesheet" href="~/css/rightContainer.css" />
+    <link rel="stylesheet" href="~/css/scores.css" />
+    <link rel="stylesheet" href="~/css/userDecision.css" />
+</head>
+<body>
+    <header>
+        <a asp-area="" asp-controller="Home" asp-action="Index" id="headerNewGame">Nowa gra</a>
+        <a asp-area="" asp-controller="Home" asp-action="Scores" id="headerScores">Wyniki</a>
+    </header>
+    <section role="main">
+        @RenderBody()
+    </section>
+    <footer></footer>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/js/changePage.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+﻿#scoreContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 84vh;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    border: 2px solid #d4d4d4;
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/backgroundResult.jpeg);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#scoreContainerLeft, #scoreContainerRight {
+    margin-left: 5vw;
+}
+
+#scoreTitle, #navigatorTitle {
+    display: flex;
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#navigatorTitle {
+    margin-left: 10px;
+}
+
+#scoreTitle {
+    padding-bottom: 20px;
+}
+
+#scoreResult {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+#pageCurrentNumber {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#scoreNameRow {
+    width: 50%;
+}
+
+#scoreResultRow {
+    width: 25%;
+}
+
+#scoreDateRow {
+    width: 25%;
+}
+
+    #scoreNameRow div, #scoreResultRow div, #scoreDateRow div {
+        margin-bottom: 20px;
+    }
+
+.navigatorContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.navigatorText {
+    display: none;
+    align-items: center;
+    width: 40%;
+}
+
+.navigatorResult {
+    display: none;
+    width: 60%;
+    height: 50px;
+    margin-left: 25px;
+    align-items: center;
+}
+
+.navigator50 {
+    display: none;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.currentPage {
+    background-color: rgb(255, 140, 0);
+    color: rebeccapurple;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.leftArrow {
+    background-image: url(../images/leftArrow.png);
+}
+
+.rightArrow {
+    background-image: url(../images/rightArrow.png);
+}
+
+.leftArrow, .rightArrow {
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #scoreContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 82vh;
+        margin: 0;
+    }
+
+    #scoreTitle, #navigatorTitle {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #scoreContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 84vh;
+        margin: 0;
+    }
+
+    #scoreTitle, #navigatorTitle {
+        font-size: 28px;
+    }
+}

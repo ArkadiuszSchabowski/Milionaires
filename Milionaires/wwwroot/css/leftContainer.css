@@ -1,0 +1,126 @@
+﻿#questionWindow {
+    padding-top: 4%;
+    width: 100%;
+    height: 50%;
+    border-bottom: 2px solid #d4d4d4;
+    border-radius: 1px;
+    color: white;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#questionText {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    background-color: rebeccapurple;
+}
+
+#btnResign {
+    justify-content: center;
+}
+#btnResignNo {
+    margin-left: 1vw;
+}
+
+.btnAnswer {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding-left: 2%;
+    width: 100%;
+    height: 20%;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    background-color: #d9d9d9;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #questionWindow {
+        height: 70%;
+        border-bottom: 2px solid black;
+    }
+
+    #questionText {
+        font-size: 26px;
+    }
+
+    #buttonsContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 30%;
+    }
+
+    #btnA, #btnB {
+        margin-top: 1%;
+    }
+
+    #btnB, #btnD {
+        margin-left: 1%;
+    }
+
+    .btnAnswer {
+        width: 49%;
+        height: 30%;
+    }
+
+    .endGameDiv {
+        width: 70%;
+    }
+
+    .endGameInput {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #questionWindow {
+        height: 70%;
+        border-bottom: 2px solid black;
+    }
+
+    #questionText {
+        font-size: 30px;
+    }
+
+    #buttonsContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 30%;
+    }
+
+    #btnA, #btnB {
+        margin-top: 0.5%;
+    }
+
+    #btnB, #btnD {
+        margin-left: 1%;
+    }
+
+    .btnAnswer {
+        width: 49%;
+        height: 30%;
+    }
+
+    .endGameDiv {
+        width: 50%;
+    }
+
+    .endGameInput {
+        width: 40%;
+    }
+}

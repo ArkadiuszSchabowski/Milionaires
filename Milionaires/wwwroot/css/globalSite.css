@@ -1,0 +1,73 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+    background-color: #d4d4d4;
+    overflow-x: hidden;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    width: 100vw;
+    height: 10vh;
+    min-height: 10vh;
+    background-color: rebeccapurple;
+}
+
+    header a {
+        color: white;
+        text-decoration: none;
+    }
+
+#headerNewGame, #headerScores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#headerNewGame, #headerScores {
+    border-left: 2px solid #d4d4d4;
+}
+
+#headerScores {
+    border-right: 2px solid #d4d4d4;
+}
+
+section {
+    width: 100vw;
+    height: 94vh;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    header {
+        margin: 1% 0;
+        font-size: 24px;
+    }
+
+    section {
+        height: 92vh;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+        margin: 1% 0;
+        font-size: 28px;
+    }
+
+    section {
+        height: 90vh;
+    }
+}
