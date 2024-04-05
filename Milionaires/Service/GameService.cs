@@ -9,19 +9,22 @@ namespace Milionaires.Service
     public interface IGameService
     {
         Score CreateRecord(Score score);
-        List<Question> GetAllQuestions();
         ScoreQuery GetAllScores(ScoreDto scoreDto);
+        List<Question> CreateQuestions();
     }
 
     public class GameService : IGameService
     {
         private readonly MyDbContext _context;
-        private readonly List<Question> _questions;
 
         public GameService(MyDbContext context)
         {
             _context = context;
-            _questions = new List<Question>
+           
+        }
+        public List<Question> CreateQuestions()
+        {
+            List<Question> questions = new List<Question>
             {
                 new Question("Jak wygląda operator inkrementacji?", new[] { "A. ==", "B. ++", "C. --", "D. =" }, 1, "Operator inkrementacji '++' zwiększa wartość zmiennej o 1.", 1),
                 new Question("Jak wygląda operator dekrementacji?", new[] { "A. ==", "B. --", "C. ++", "D. =" }, 1, "Operator dekrementacji '--' zmniejsza wartość zmiennej o 1.", 1),
@@ -44,6 +47,8 @@ namespace Milionaires.Service
                 new Question("Jakie jest zastosowanie słowa kluczowego 'async' w języku C#?", new[] { "A. Określanie klas abstrakcyjnych", "B. Określanie klasy zapieczętowanej", "C. Tworzenie asynchronicznych metod", "D. Tworzenie interfejsów" }, 2, "Słowo kluczowe 'async' oznacza, że metoda jest asynchroniczna.", 10),
                 new Question("Jakie jest zastosowanie słowa kluczowego 'using' w języku C#?", new[] { "A. Tworzenie pętli", "B. Określanie dostępu do elementów klasy", "C. Importowanie przestrzeni nazw", "D. Tworzenie klas generycznych" }, 2, "Słowo kluczowe 'using' jest używane do importowania przestrzeni nazw.", 10),
             };
+            return questions;
+
         }
 
         public Score CreateRecord(Score score)
@@ -65,11 +70,6 @@ namespace Milionaires.Service
             _context.Scores.Add(score);
             _context.SaveChanges();
             return score;
-        }
-
-        public List<Question> GetAllQuestions()
-        {
-            return _questions;
         }
 
         public ScoreQuery GetAllScores(ScoreDto scoreDto)

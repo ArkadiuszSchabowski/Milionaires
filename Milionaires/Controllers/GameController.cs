@@ -18,7 +18,7 @@ namespace Milionaires.Controllers
         [HttpGet("questions")]
         public IActionResult GetQuestions()
         {
-            var _questions = _service.GetAllQuestions();
+            var _questions = _service.CreateQuestions();
 
             if (_questions == null)
             {
