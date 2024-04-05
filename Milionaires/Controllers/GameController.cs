@@ -42,19 +42,8 @@ namespace Milionaires.Controllers
         [HttpPost]
         public IActionResult SaveScore([FromBody] Score score)
         {
-            try
-            {
                 Score record = _service.CreateRecord(score);
                 return Ok("Wynik został zapisany!");
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { error = "Wystąpił błąd serwera! Spróbuj ponownie później lub skontaktuj się z administratorem." });
-            }
         }
     }
 }
