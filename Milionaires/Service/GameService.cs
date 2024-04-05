@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Milionaires.Database;
 using Milionaires.Database.Entities;
+using Milionaires.Exceptions;
 using Milionaires.Models;
 
 namespace Milionaires.Service
@@ -60,11 +61,11 @@ namespace Milionaires.Service
 
             if(score.Name.Length > 25)
             {
-                throw new InvalidOperationException("Twój nick jest za długi - operacja zapisu nie powiodła się!");
+                throw new BadRequestException("Twój nick jest za długi - operacja zapisu nie powiodła się!");
             }
             if(score.Result != 500 && score.Result != 2000 && score.Result != 5000 && score.Result != 10000 && score.Result != 40000 && score.Result != 75000 && score.Result != 150000 && score.Result != 250000 && score.Result != 500000 && score.Result != 1000000)
             {
-                throw new InvalidOperationException("Wprowadzony wynik nie jest prawidłowy. Dozwolone wartości to: 500, 2000, 5000, 10000, 40000, 75000, 150000, 250000, 500000, 1000000.");
+                throw new BadRequestException("Wprowadzony wynik nie jest prawidłowy. Dozwolone wartości to: 500, 2000, 5000, 10000, 40000, 75000, 150000, 250000, 500000, 1000000.");
             }
             score.Date = DateTime.Now;
             _context.Scores.Add(score);
