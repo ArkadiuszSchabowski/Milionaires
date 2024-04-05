@@ -1,16 +1,26 @@
-﻿using Milionaires.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Milionaires.Database;
+using Milionaires.Models;
 using Milionaires.Service;
+using Milionaires.Tests.Fakes;
+using Moq;
 using NUnit.Framework;
 
 namespace Milionaires.Tests.UnitTests
 {
     public class GameServiceUnitTests
     {
-        private readonly IGameService _service;
+        private IGameService _service;
 
-        public GameServiceUnitTests(IGameService service)
+        [SetUp]
+        public void Setup()
         {
-            _service = service;
+            var options = new DbContextOptionsBuilder<MyDbContext>()
+                .UseInMemoryDatabase(databaseName: "TestDatabase").Options;
+
+            var mockContext = new Mock<FakeDbContext>(options);
+
+            _service = new GameService(mockContext.Object);
         }
         [Test]
         public void CreateQuestions_WhenCalled_ShouldReturnListQuestion()
@@ -20,6 +30,5 @@ namespace Milionaires.Tests.UnitTests
             //assert
             Assert.That(result, Is.InstanceOf<List<Question>>());
         }
-
     }
 }
