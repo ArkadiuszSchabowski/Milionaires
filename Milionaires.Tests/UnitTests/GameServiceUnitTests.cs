@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Milionaires.Database;
+using Milionaires.Database.Entities;
+using Milionaires.Exceptions;
 using Milionaires.Models;
 using Milionaires.Service;
 using Milionaires.Tests.Fakes;
@@ -29,6 +31,18 @@ namespace Milionaires.Tests.UnitTests
             var result = _service.CreateQuestions();
             //assert
             Assert.That(result, Is.InstanceOf<List<Question>>());
+        }
+        [Test]
+        public void CreateRecord_WhenCalledWhenNameIsLongerThan25Letters_ShouldReturnBadRequestException()
+        {
+            var dto = new Score()
+            {
+                Id = 1,
+                Name = "UserUserUserUserUserUserUserUser",
+                Result = 2000,
+            };
+
+            Assert.Throws<BadRequestException>(() => _service.CreateRecord(dto));
         }
     }
 }

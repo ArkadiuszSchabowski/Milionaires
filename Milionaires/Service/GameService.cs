@@ -49,7 +49,6 @@ namespace Milionaires.Service
                 new Question("Jakie jest zastosowanie słowa kluczowego 'using' w języku C#?", new[] { "A. Tworzenie pętli", "B. Określanie dostępu do elementów klasy", "C. Importowanie przestrzeni nazw", "D. Tworzenie klas generycznych" }, 2, "Słowo kluczowe 'using' jest używane do importowania przestrzeni nazw.", 10),
             };
             return questions;
-
         }
 
         public Score CreateRecord(Score score)
@@ -67,6 +66,7 @@ namespace Milionaires.Service
             {
                 throw new BadRequestException("Wprowadzony wynik nie jest prawidłowy. Dozwolone wartości to: 500, 2000, 5000, 10000, 40000, 75000, 150000, 250000, 500000, 1000000.");
             }
+
             score.Date = DateTime.Now;
             _context.Scores.Add(score);
             _context.SaveChanges();
