@@ -75,7 +75,14 @@ namespace Milionaires.Service
 
         public ScoreQuery GetAllScores(ScoreDto scoreDto)
         {
-            int AvailableScores = 100;
+            if(scoreDto.PageNumber < 1)
+            {
+                throw new BadRequestException("Numer strony nie może być mniejszy niż jeden");
+            }
+            if(scoreDto.PageSize < 1 || scoreDto.PageSize > 100) 
+            {
+                throw new BadRequestException("Liczba przeglądanych wyników musi mieścić się w zakresie 1-100");
+            }
 
             List<Score> baseQuery = _context.Scores.ToList();
 
@@ -85,18 +92,18 @@ namespace Milionaires.Service
                 .Take(scoreDto.PageSize)
                 .ToList();
 
+            int totalCount = baseQuery.Count();
+            int totalPages = totalCount / scoreDto.PageSize;
 
-            ScoreQuery query = new ScoreQuery(new ScoreDto
-            {
-                PageNumber = scoreDto.PageNumber,
-                PageSize = scoreDto.PageSize,
-            });
+            var query = new ScoreQuery();
 
+            query.PageSize = scoreDto.PageSize;
+            query.PageNumber = scoreDto.PageNumber;
             query.ListScores = scores;
-            query.TotalCount = baseQuery.Count();
-            query.TotalPages = AvailableScores / query.PageSize;
-            query.ItemsFrom = query.PageSize * (query.PageNumber - 1) + 1;
-            query.ItemsTo = query.ItemsFrom + query.PageSize - 1;
+            query.TotalCount = totalCount;
+            query.TotalPages = totalPages;
+            query.ItemsFrom = scoreDto.PageSize * (scoreDto.PageNumber - 1) + 1;
+            query.ItemsTo = query.ItemsFrom + scoreDto.PageSize - 1;
 
             return query;
         }
