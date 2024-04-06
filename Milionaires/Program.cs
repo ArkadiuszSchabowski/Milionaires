@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Milionaires.Database;
+using Milionaires.Middleware;
 using Milionaires.Service;
 
 namespace Milionaires
@@ -23,6 +24,7 @@ namespace Milionaires
             }
 
             builder.Services.AddScoped<IGameService, GameService>();
+            builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
             var app = builder.Build();
 
@@ -32,6 +34,7 @@ namespace Milionaires
                 app.UseHsts();
             }
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
