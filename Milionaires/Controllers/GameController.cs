@@ -20,11 +20,6 @@ namespace Milionaires.Controllers
         {
             var _questions = _service.CreateQuestions();
 
-            if (_questions == null)
-            {
-                return NotFound(new { message = "Nie masz jeszcze stworzonych pytań!", data = _questions });
-            }
-
             return Ok(_questions);
         }
         [HttpGet("scores")]
@@ -32,18 +27,14 @@ namespace Milionaires.Controllers
         {
             ScoreQuery scores = _service.GetAllScores(scoreDto);
 
-            if(scores == null)
-            {
-                return NotFound(new { message = "Nie udało połączyć się z bazą danych!" });
-            }
             return Ok(scores);
         }
 
         [HttpPost]
         public IActionResult SaveScore([FromBody] Score score)
         {
-                Score record = _service.CreateRecord(score);
-                return Ok("Wynik został zapisany!");
+            _service.CreateRecord(score);
+            return Ok("Wynik został zapisany!");
         }
     }
 }
