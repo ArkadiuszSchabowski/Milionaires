@@ -44,5 +44,16 @@ namespace Milionaires.Tests.UnitTests
 
             Assert.Throws<BadRequestException>(() => _service.CreateRecord(dto));
         }
+        [Test]
+        public void CreateRecord_WhenResultIsIncorrect_ShouldReturnBadRequestException()
+        {
+            var dto = new Score()
+            {
+                Id = 1,
+                Name = "User",
+                Result = -1
+            };
+            Assert.Throws<BadRequestException>(() => _service.CreateRecord(dto));
+        }
     }
 }
