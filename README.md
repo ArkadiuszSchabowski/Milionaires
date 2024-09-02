@@ -5,12 +5,17 @@ About the Project - Milionaires is a quiz application inspired by the popular TV
 Technology Stack:
 - Frontend: Vanilla JavaScript
 - Backend: ASP.NET Core (C#)
-- Databse: Microsoft SQL Server, In-Memory SQL Server (for demo purposes)
+- Database: Microsoft SQL Server, In-Memory SQL Server (for demo purposes)
 - Communication: REST API
+
+Design Patterns:
+- Model View Controller (MVC)
+- Dependency Injection (DI)
 
 How to Run:
 - Clone the repository
 - Open the solution Milionaires.sln in Visual Studio.
+- Click the green arrow (Run) dropdown in the toolbar and select Production.
 - Press the F5 key or click the green compile arrow in the top toolbar.
 
 Demo - To quickly experience the application, simply visit the: https://milionaires.azurewebsites.net
