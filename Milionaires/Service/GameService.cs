@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Milionaires.Database;
+﻿using Milionaires.Database;
 using Milionaires.Database.Entities;
 using Milionaires.Exceptions;
 using Milionaires.Models;

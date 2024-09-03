@@ -11,7 +11,6 @@ namespace Milionaires
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<MyDbContext>(options => options.UseInMemoryDatabase("MemoryDb"));
@@ -21,13 +20,11 @@ namespace Milionaires
 
             var app = builder.Build();
 
-            if (!app.Environment.IsDevelopment())
+            if (app.Environment.IsProduction())
             {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+                app.UseMiddleware<ErrorHandlingMiddleware>();
             }
 
-            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
