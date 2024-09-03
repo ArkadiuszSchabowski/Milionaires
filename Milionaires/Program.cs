@@ -14,14 +14,7 @@ namespace Milionaires
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            if (builder.Environment.IsProduction())
-            {
-                builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MilionairesConnectionString")));
-            }
-            else
-            {
-                builder.Services.AddDbContext<MyDbContext>(options => options.UseInMemoryDatabase("MemoryDb"));
-            }
+            builder.Services.AddDbContext<MyDbContext>(options => options.UseInMemoryDatabase("MemoryDb"));
 
             builder.Services.AddScoped<IGameService, GameService>();
             builder.Services.AddScoped<ErrorHandlingMiddleware>();
